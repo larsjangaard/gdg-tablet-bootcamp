@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/admin">Math</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+        </ul>
+        <p class="if-signed-in navbar-text pull-right">Welcome, <span id="username"></span>
+          <a id="sign-out">Sign out</a>
+        </p>
+        <p class="if-not-signed-in navbar-text pull-right"><a id="sign-in">Sign in</a></p>
+      </div> <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="hero-unit">
+  <h1 id="targetNumber"></h1>
+  	<div id="alertMessages">
+  		<div class="alert if-incorrect">
+  			<span id="guess"></span> is <strong>Wrong!</strong>
+		</div>
+  		<div class="alert alert-success if-correct">
+  			<strong>Correct!</strong>
+		</div>
+	</div>	
+	<div id="formulaInput">
+		<input id="formula" class="input-xlarge" type="text"> 
+	</div>   
+ 	<table class="keyboard">
+		<tr>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+			<td>/</td>	
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+			<td>*</td>	
+		</tr>		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>-</td>	
+		</tr>
+		<tr>
+			<td>CLR</td>
+			<td>0</td>
+			<td>GO</td>
+			<td>+</td>	
+		</tr>				
+	</table>		
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.hero-unit {
+	width: 310px;
+	margin: auto;
+	float: none;
+	text-align: center;
+}
+
+.hero-unit input {
+	font-size: 3em;
+	height: 1.5em;
+	vertical-align: middle;
+}
+
+.hero-unit h1 {
+	margin-bottom: 20px;
+}
+
+.keyboard {
+	margin: auto;
+}
+
+.keyboard td {
+	width: 60px;
+	height: 60px;
+	color: white;
+	background-color: #444;
+	margin: 10px;
+	text-align: center;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #EEE;
+
+}
+
+.keyboard td.disabled {
+	background-color: #888;
+	color: #444;
+}
+
+.keyboard td:not(.disabled) {
+	cursor: hand;
+}
+
+input::-webkit-input-placeholder {
+
+}
+
+#formula {
+	width: 270px;
+	margin: auto;
+}
+
+#formulaInput {
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.alert {
+	width:220px;
+}
+
+body.correct .if-not-correct { 
+	display: none; 
+	margin-bottom: 8px;
+	text-align: center;
+}
+body:not(.correct) .if-correct { 
+	display: none; 
+	margin-bottom: 8px;
+}
+
+body.incorrect .if-not-incorrect { 
+	display: none;
+	margin-bottom: 8px;
+}
+body:not(.incorrect) .if-incorrect { 
+	display: none; 
+	margin-bottom: 8px;
+}
+
+#alertMessages {
+	text-align: center;
+	margin:auto;
+	width: 270px
+}
