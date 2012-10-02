@@ -22,6 +22,12 @@ App('todos',
     images=('destroy.png',)
     )
 
+App('math',
+    scripts=COMMON_SCRIPTS + ('json-rest', 'backbone', 'math'),
+    styles=('signin', 'bootstrap', 'math', 'bootstrap-responsive'),
+    images=('destroy.png',)
+    )
+
 App('canvas',
     scripts=COMMON_SCRIPTS + ('bootstrap-colorpicker', 'modernizr-touch-only', 'canvas', 'touch-events'),
     styles=('bootstrap', 'colorpicker', 'canvas', 'signin'),

@@ -8,6 +8,7 @@ from rest.models import RESTModel, Timestamped, add_models
 def init():
     add_models({
             'todo': Todo,
+            'math': Math,
             'image': Image,
             'showdown': Showdown,
             'canvas': Canvas
@@ -23,6 +24,10 @@ class Todo(RESTModel, Timestamped):
     done = db.BooleanProperty()
     order = db.IntegerProperty()
 
+class Math(RESTModel, Timestamped):
+    text = db.StringProperty()
+    done = db.BooleanProperty()
+    order = db.IntegerProperty()
 
 class Image(RESTModel, Timestamped):
     title = db.StringProperty()

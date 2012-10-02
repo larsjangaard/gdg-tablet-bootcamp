@@ -19,6 +19,7 @@ models.init()
 paths = [
     ('/', PageHandler.params('index.html', app='main')),
     ('/todos', PageHandler.params('todos.html', app='todos')),
+    ('/math', PageHandler.params('math.html', app='math')),    
     ('/canvas', PageHandler.params('canvas.html', app='canvas')),
     ('/admin', AdminPageHandler.params('admin.html', app='admin')),
     ]
