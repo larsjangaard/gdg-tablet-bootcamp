@@ -11,11 +11,20 @@ namespace.module('gdg.math', function (exports, requires) {
     var touch;
     var minDistance2 = 4 * 4;
     var targetNumber;
+    var totalScore = 0;
+    var previousCorrect = false;
+    var currentStreak = 1;
+    var currentTryNumber = 1;
 
     function init() {
+    
         // check if touch device (from Modernizr)
         isTouchDevice = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
-
+		
+		// copied
+        upEventStr = isTouchDevice ? 'touchend' : 'mouseup';
+		// copied
+		
         if (isTouchDevice) {
             $(document).on('touchstart', function (e) {
                 if (e.target == $('body')[0]) {
@@ -23,11 +32,23 @@ namespace.module('gdg.math', function (exports, requires) {
                 }
             });
         }
+            
+        if($(window).height() < 550) {
+            $('body').addClass('mobile');
+        }  
+        
+        calculateTotalScore();      
+        
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        //alert(windowWidth + " " + windowHeight);
+		
+		$('body').addClass('default');		
 		
 		$('#evaluate').click(onEval);
 		newProblem();	
 		
-		$('.keyboard td:not(.disabled)').on('mousedown', onKeyboard);
+		$('.keyboard td:not(.disabled)').on(upEventStr, onKeyboard);
 			
         $(window).on('resize', onResize);
     }
@@ -37,8 +58,8 @@ namespace.module('gdg.math', function (exports, requires) {
     	
     	if(key == 'CLR') { 
   			$('#formula').val(''); 
-			$('body').removeClass('correct');
-			$('body').removeClass('incorrect');				  			  
+  			
+  			removeAllAlertsBut('default');
   			return;		
     	}
     	
@@ -56,28 +77,77 @@ namespace.module('gdg.math', function (exports, requires) {
 		$('#targetNumber').text(targetNumber);
 	}
 	
+	function calculateTotalScore(isCorrect) {
+		if(isCorrect == true) {
+			totalScore = totalScore + 100;
+		}
+				
+		$('.calculatedScore').text(totalScore);
+	}
+	
 	function onEval() {
 		var formula = $('#formula').val();
 		var answer = eval(formula);
+		var re = new RegExp(targetNumber);
+		var m = re.exec(formula);
+		var message;
 		
 		if(answer != targetNumber) {
-			$('body').removeClass('correct');		
-			$('body').addClass('incorrect');
-			$('#guess').text(answer);
+			message = answer;
+			
+			previousCorrect = false;
+			currentTryNumber++;
+			
+			// remove and add class
+			removeAllAlertsBut('incorrect');
+	        calculateTotalScore(); 			
+			
+			$('#guess').text(message);
+		} else if(m != null) { 
+			message = 'Cannot use given number!';
+			
+			previousCorrect = false;
+			currentTryNumber++;
+			// remove and add class
+			calculateTotalScore(); 
+			removeAllAlertsBut('sameNumber');			
+			$('#sameNumber').text(message);			
 		} else {
-			$('body').addClass('correct');		
-			$('body').removeClass('incorrect');
+			// remove and add class
+
+	        calculateTotalScore(true); 			
+			removeAllAlertsBut('correct');
+			
+			console.log(previousCorrect + ' ' + currentTryNumber);
+			
+			if(previousCorrect == true && currentTryNumber == 1) {
+				currentStreak = currentStreak + 1;
+				console.log(currentStreak);
+			}
+			// generate new number
+			previousCorrect = true;
+			currentTryNumber = 1;
+			newProblem();
+			
+			// clear the input field
+			$('#formula').val('');
 		}
 	}
 	
-    function onTodoTouchstart(event) {
-        if (event.target.classList == 'todo-text') {
-            event = exposeTouchEvent(event);
-            touch = [event.pageX, event.pageY];
-        }
-    }
+	function removeAllAlertsBut(classToAdd) {
+		var alertArray = new Array('default','correct','incorrect','sameNumber');
+		
+		for(var i = 0; i < alertArray.length; i++) {
+			if(alertArray[i] == classToAdd) {
+				$('body').addClass(classToAdd);
+			} else {
+				$('body').removeClass(alertArray[i]);
+			}
+		}
+	}
+	
 
-    function onTodoTouchmove(event) {
+    /*function onTodoTouchmove(event) {
         if (touch.length != 2) {
             return;
         }
@@ -139,5 +209,5 @@ namespace.module('gdg.math', function (exports, requires) {
             return e.originalEvent.touches[0];
         }
         return e; // is not a touch event
-    }
+    }*/
 });

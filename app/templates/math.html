@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block body %}
+<!-- item form -->
 <div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
+  <div class="navbar-inner if-mobile">
     <div class="container-fluid">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
@@ -25,15 +26,53 @@
 <div class="hero-unit">
   <h1 id="targetNumber"></h1>
   	<div id="alertMessages">
+  		<div class="alert alert-info if-default">
+  			<div class="score-icon">
+				<label class="score-label" for="total-score">
+					<img src="/images/math_score.png" class="score-label">
+				</label>
+				<div id="total-score">
+					<h4 id="total-score" class="calculatedScore"></h4>
+				</div>
+			</div>
+  		</div>
   		<div class="alert if-incorrect">
-  			<span id="guess"></span> is <strong>Wrong!</strong>
+  			<div class="score-icon">
+				<label class="score-label" for="total-score">
+					<img src="/images/math_score.png" class="score-label">
+				</label>
+				<div id="total-score">
+					<h4 id="total-score" class="calculatedScore"></h4>
+				</div>
+	  			<div class="alertText">
+	  				<span id="guess"></span> is <strong>Wrong!</strong>				
+	  			</div>
+			</div>  		
 		</div>
+  		<div class="alert if-sameNumber">
+  			<div class="score-icon">
+				<label class="score-label" for="total-score">
+					<img src="/images/math_score.png" class="score-label">
+				</label>
+				<div id="total-score">
+					<h4 id="total-score" class="calculatedScore"></h4>
+				</div>
+			</div>    		
+  			<span id="sameNumber"></span>
+		</div>		
   		<div class="alert alert-success if-correct">
-  			<strong>Correct!</strong>
+  			<div class="score-icon">
+				<label class="score-label" for="total-score">
+					<img src="/images/math_score.png" class="score-label">
+				</label>
+				<div id="total-score">
+					<h4 id="total-score" class="calculatedScore"></h4>
+				</div>
+			</div> 
 		</div>
 	</div>	
 	<div id="formulaInput">
-		<input id="formula" class="input-xlarge" type="text"> 
+		<input id="formula" placeholder="Calculate!" type="text"> 
 	</div>   
  	<table class="keyboard">
 		<tr>

@@ -1,23 +1,24 @@
 body {
   padding-top: 60px;
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
 }
 
 .hero-unit {
-	width: 310px;
+	width: 270px;
 	margin: auto;
 	float: none;
 	text-align: center;
+	padding: 10px;
 }
 
 .hero-unit input {
-	font-size: 3em;
-	height: 1.5em;
-	vertical-align: middle;
+	font-size: 30px;/*3em;*/
+	height: 60px;/*1.5em;*/
+	vertical-align: text-bottom;
 }
 
 .hero-unit h1 {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .keyboard {
@@ -28,26 +29,29 @@ body {
 	width: 60px;
 	height: 60px;
 	color: white;
-	background-color: #444;
+	background-color: #333;
 	margin: 10px;
 	text-align: center;
 	border-width: 5px;
 	border-style: solid;
 	border-color: #EEE;
+}
 
+.notification td {
+	text-align: left;
+}
+
+#score {
+	text-align: left;
 }
 
 .keyboard td.disabled {
 	background-color: #888;
-	color: #444;
+	color: #333;
 }
 
 .keyboard td:not(.disabled) {
 	cursor: hand;
-}
-
-input::-webkit-input-placeholder {
-
 }
 
 #formula {
@@ -55,32 +59,114 @@ input::-webkit-input-placeholder {
 	margin: auto;
 }
 
+#formulaInput input {
+    width: 270px;
+    font-size: 32px;
+    font-family: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    padding: 6px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;	
+}
+
+    #formulaInput input::-webkit-input-placeholder {
+
+    }
+
 #formulaInput {
 	text-align: center;
 	margin-bottom: 8px;
 }
 
+/*** SCORE ***/
+	.score-icon {
+		text-align: left;
+		vertical-align: bottom;
+	}
+
+	.score-label {
+		display: inline;
+    	width: 20px;
+    	height: 20px;	
+	}
+
+	#total-score {
+		display: inline;
+		vertical-align: bottom;
+		color: #333;
+	}
+
+	.calculatedScore {		
+	}
+	
+	.alertText {
+		vertical-align: bottom;
+		padding-top: 1px;
+		display: inline;
+		float: right;
+		margin-right: -15px;
+	}
+	
+	#guess {
+		vertical-align: bottom;
+	}
+
 .alert {
 	width:220px;
+	margin-bottom: 12px;
+}
+
+body.default .if-not-default {
+	display: none;
+	margin-bottom: 6px;
+	text-align: center;
+}
+
+body:not(.default) .if-default {
+	display: none;
+	margin-bottom: 6px;
 }
 
 body.correct .if-not-correct { 
 	display: none; 
-	margin-bottom: 8px;
+	margin-bottom: 6px;
 	text-align: center;
 }
 body:not(.correct) .if-correct { 
 	display: none; 
-	margin-bottom: 8px;
+	margin-bottom: 6px;
 }
 
 body.incorrect .if-not-incorrect { 
 	display: none;
-	margin-bottom: 8px;
+	margin-bottom: 6px;
 }
 body:not(.incorrect) .if-incorrect { 
 	display: none; 
-	margin-bottom: 8px;
+	margin-bottom: 6px;
+}
+
+body.sameNumber .if-not-sameNumber { 
+	display: none;
+	margin-bottom: 6px;
+}
+body:not(.sameNumber) .if-sameNumber { 
+	display: none; 
+	margin-bottom: 6px;
+}
+
+body.mobile .if-mobile {
+	display: none;
+	padding-left: 0px;
+	padding-right: 0px;	
+}
+
+body:not(.mobile) .if-not-mobile {
+
 }
 
 #alertMessages {
