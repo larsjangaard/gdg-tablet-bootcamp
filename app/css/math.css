@@ -35,6 +35,7 @@ body {
 	border-width: 5px;
 	border-style: solid;
 	border-color: #EEE;
+	cursor: pointer;
 }
 
 .notification td {
@@ -99,6 +100,10 @@ body {
 		vertical-align: bottom;
 		color: #333;
 	}
+	
+	#pointsScored {
+		font-weight: bold;
+	}
 
 	.calculatedScore {		
 	}
@@ -153,6 +158,7 @@ body:not(.incorrect) .if-incorrect {
 body.sameNumber .if-not-sameNumber { 
 	display: none;
 	margin-bottom: 6px;
+	text-align: center;
 }
 body:not(.sameNumber) .if-sameNumber { 
 	display: none; 
@@ -163,14 +169,69 @@ body.mobile .if-mobile {
 	display: none;
 	padding-left: 0px;
 	padding-right: 0px;	
+	padding-top: 20px;
 }
 
 body:not(.mobile) .if-not-mobile {
 
 }
 
+body.multi .if-not-multi {
+	display: none;
+}
+body:not(.multi) .if-multi {
+	display: none;
+}
+
+body.multiDivis .if-not-multiDivis {
+	display: none;
+}
+body:not(.multiDivis ,if-multiDivis {
+	display: none;
+}
+
+body.allFour .if-not-allFour {
+	display: none;
+}
+body:not(.allFour ,if-allFour {
+	display: none;
+}
+
+body.noAdvanced .if-not-noAdvanced {
+	display: none;
+}
+body:not(.noAdvanced ,if-noAdvanced {
+	display: none;
+}
+
+body.inVar .if-not-inVar {
+	display: none;
+}
+body:not(.inVar ,if-inVar {
+	display: none;
+}
+
+body.outVar .if-not-outVar {
+	display: none;
+}
+body:not(.outVar ,if-outVar {
+	display: none;
+}
+
 #alertMessages {
 	text-align: center;
 	margin:auto;
 	width: 270px
+}
+
+#scorePopover {
+	font-size: 10px;
+}
+
+.popover-inner {
+	width: 150px;
+}
+
+.popover-title {
+	text-size: 10px;
 }

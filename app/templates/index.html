@@ -1,18 +1,8 @@
 {% extends "admin_base.html" %}
-{% block title %}GDG Sample Apps{% endblock %}
+{% block title %}Calculate{% endblock %}
 
 {% block content %}
-<h1>GDG Sample Applications</h1>
-
-<ul>
-  <li><a href="/math">MATH</a></li>
-  <li><a href="/todos">ToDos - Bootstrap sample</a></li>
-  <ul>
-    <li><a href="/data/todo">JSON-Data</a></li>
-    <li><a href="/admin/forms/todo">Admin Interface</a></li>
-  </ul>
-  <li><a href="/canvas">Canvas - Touch/Click Event Handling Sample</a></li>
-  <li><a href="/admin">Admin Data Console</a></li>
-  <li><a href="/data">All JSON Schema</a></li>
-</ul>
+<div class='hero-unit'>
+	<a href='/math' class='btn btn-large' type='button'>Calculate</a>
+</div>
 {% endblock %}

@@ -5,8 +5,8 @@ from includes import App
 COMMON_SCRIPTS = ('jquery', 'namespace-plus', 'app-cache', 'underscore', 'signin', 'cookies')
 
 App('main',
-    scripts=COMMON_SCRIPTS,
-    styles=('bootstrap', 'admin', 'bootstrap-responsive', 'signin')
+    scripts=COMMON_SCRIPTS + ('json-rest', 'backbone', 'index'),
+    styles=('bootstrap', 'admin', 'bootstrap-responsive', 'signin', 'index')
     )
 
 App('admin',
@@ -23,10 +23,15 @@ App('todos',
     )
 
 App('math',
-    scripts=COMMON_SCRIPTS + ('json-rest', 'backbone', 'math'),
-    styles=('signin', 'bootstrap', 'math', 'bootstrap-responsive'),
+    scripts=COMMON_SCRIPTS + ('bootstrap', 'json-rest', 'backbone', 'math', 'bootstrapx-clickover'),
+    styles=('bootstrap', 'forms', 'thumbnail-display', 'math', 'signin'),
     images=('destroy.png',)
     )
+
+App('index',
+	scripts=COMMON_SCRIPTS + ('json-rest', 'backbone', 'index'),
+	styles=('signin', 'bootstrap', 'index', 'bootstrap-responsive')
+	)
 
 App('canvas',
     scripts=COMMON_SCRIPTS + ('bootstrap-colorpicker', 'modernizr-touch-only', 'canvas', 'touch-events'),

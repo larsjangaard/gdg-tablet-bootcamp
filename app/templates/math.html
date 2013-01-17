@@ -2,6 +2,7 @@
 
 {% block body %}
 <!-- item form -->
+
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner if-mobile">
     <div class="container-fluid">
@@ -18,7 +19,7 @@
           <a id="sign-out">Sign out</a>
         </p>
         <p class="if-not-signed-in navbar-text pull-right"><a id="sign-in">Sign in</a></p>
-      </div> <!--/.nav-collapse -->
+      </div>
     </div>
   </div>
 </div>
@@ -57,8 +58,10 @@
 				<div id="total-score">
 					<h4 id="total-score" class="calculatedScore"></h4>
 				</div>
-			</div>    		
-  			<span id="sameNumber"></span>
+				<div class="alertText">    		
+		  			<span id="sameNumber"></span>
+	  			</div>				
+			</div>
 		</div>		
   		<div class="alert alert-success if-correct">
   			<div class="score-icon">
@@ -68,9 +71,15 @@
 				<div id="total-score">
 					<h4 id="total-score" class="calculatedScore"></h4>
 				</div>
+	  			<div class="alertText" id="points-scored">
+	  				<a href="#" id="pointsScored"></a>	
+	  			</div>
 			</div> 
 		</div>
-	</div>	
+	</div>
+	<!--<div class="progress progress-danger">
+  		<div class="bar" style="width: 80%"></div>
+	</div>-->		
 	<div id="formulaInput">
 		<input id="formula" placeholder="Calculate!" type="text"> 
 	</div>   
@@ -79,19 +88,19 @@
 			<td>7</td>
 			<td>8</td>
 			<td>9</td>
-			<td>/</td>	
+			<td>&divide;</td>	
 		</tr>
 		<tr>
 			<td>4</td>
 			<td>5</td>
 			<td>6</td>
-			<td>*</td>	
+			<td>&#10005;</td>	
 		</tr>		
 		<tr>
 			<td>1</td>
 			<td>2</td>
 			<td>3</td>
-			<td>-</td>	
+			<td>&minus;</td>	
 		</tr>
 		<tr>
 			<td>CLR</td>
